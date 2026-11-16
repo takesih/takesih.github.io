@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f4f2e9">
+    <title>takesih — 당구장을 운영하며 만듭니다</title>
+    <meta name="description" content="라온빌리어즈를 운영하는 takesih의 포트폴리오. 당구장 운영에서 출발한 FlowCue와 공개 작업을 소개합니다.">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <a class="skip" href="#main">본문 바로가기</a>
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="wordmark" href="#main" aria-label="takesih 홈">takesih<span>.</span></a>
+        <nav aria-label="주 메뉴">
+          <a href="#about">소개</a>
+          <a href="#flowcue">FlowCue</a>
+          <a href="#work">작업</a>
+          <a class="header-link" href="https://github.com/takesih">GitHub <span aria-hidden="true">↗</span></a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="shell" id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="rust-dot" aria-hidden="true"></span> INDEPENDENT PORTFOLIO</p>
+          <h1 id="hero-title">현장에서<br>만듭니다<span>.</span></h1>
+          <p class="hero-intro"><strong>takesih</strong>입니다. 라온빌리어즈를 운영하며, 당구장 이용과 운영을 연결하는 <strong>FlowCue</strong>를 만들고 있습니다.</p>
+          <a class="primary" href="#flowcue">FlowCue 이야기 보기 <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="interactive" aria-label="3D로 살펴보는 당구장 이용 흐름">
+          <div class="stage" data-mode="start">
+            <div class="stage-grid" aria-hidden="true"></div>
+            <div class="stage-header"><span><i aria-hidden="true"></i> 당구장 이용 흐름</span><button type="button" id="reset-angle" hidden><span aria-hidden="true">↺</span> 초기 각도</button></div>
+            <div class="stage-decoration" aria-hidden="true"></div>
+            <div class="fallback-object" aria-hidden="true"></div>
+            <canvas id="sculpture" tabindex="0" aria-label="3D 조형물. 방향키나 드래그로 돌릴 수 있습니다."></canvas>
+            <div class="stage-footer">
+              <span class="object-label" id="object-label">TABLE / SELECT</span>
+              <span class="drag-note">↔ &nbsp; 드래그해서 회전</span>
+            </div>
+          </div>
+          <div class="scene-controls" role="group" aria-label="살펴볼 이용 단계">
+            <button type="button" data-mode="start" aria-pressed="true">자리 선택</button>
+            <button type="button" data-mode="play" aria-pressed="false">경기 진행</button>
+            <button type="button" data-mode="finish" aria-pressed="false">정리와 결제</button>
+          </div>
+          <p class="scene-caption" aria-live="polite"><span id="scene-summary">키오스크에서 이용할 당구대를 고릅니다.</span> <a id="scene-link" href="#flow-start" aria-label="자리 선택 단계 보기">자세히 보기 <span aria-hidden="true">↘</span></a></p>
+        </div>
+      </section>
+
+      <section id="about" class="about" aria-labelledby="about-title">
+        <h2 id="about-title"><span class="rust-dot" aria-hidden="true"></span> 소개</h2>
+        <div>
+          <p class="about-lead">운영하면서 생긴 질문을<br>소프트웨어로 풀어갑니다.</p>
+          <p>24시간 무인 당구장에서는 처음 온 손님도 빈자리를 고르고, 경기를 시작하고, 이용을 마칠 수 있어야 합니다. 라온빌리어즈를 운영하면서 이 과정이 자연스럽게 이어지도록 매장 이용 안내와 화면을 만들고 있습니다.</p>
+        </div>
+      </section>
+
+      <section id="flowcue" class="flowcue" aria-labelledby="flowcue-title">
+        <div class="flow-intro">
+          <div>
+            <p class="eyebrow"><span class="rust-dot" aria-hidden="true"></span> 당구장 운영 사례</p>
+            <h2 id="flowcue-title">FlowCue<span>.</span></h2>
+          </div>
+          <div>
+            <p class="flow-lead">자리 선택부터 정산까지.</p>
+            <p class="flow-description">키오스크, 당구대 옆 점수판, 운영 화면을 연결하는 당구장 운영 도구입니다. 손님이 다음에 할 일을 화면에서 찾고, 운영자가 당구대의 이용 상태를 한눈에 확인할 수 있도록 만들고 있습니다.</p>
+          </div>
+        </div>
+        <div class="flow-story">
+          <div class="flow-visual" aria-hidden="true">
+            <div class="stage story-stage" data-mode="start">
+              <div class="stage-grid"></div>
+              <div class="stage-decoration"></div>
+              <div class="fallback-object"></div>
+              <canvas id="flow-sculpture"></canvas>
+              <div class="stage-footer"><span class="object-label" id="flow-scene-name">자리 선택</span></div>
+            </div>
+            <div class="flow-progress"><span></span></div>
+          </div>
+          <ol class="flow-steps" aria-label="라온빌리어즈 이용 과정">
+            <li id="flow-start">
+              <p class="flow-device">키오스크</p>
+              <h3>자리 선택</h3>
+              <p>손님이 키오스크에서 이용할 당구대를 고르고, 공과 장갑을 챙겨 자리로 이동합니다. 운영 화면에서는 어떤 당구대가 이용 중인지 확인할 수 있습니다.</p>
+            </li>
+            <li id="flow-play">
+              <p class="flow-device">당구대 옆 점수판</p>
+              <h3>경기 진행</h3>
+              <p>자리에서 게임을 설정하고 점수판으로 경기 진행을 확인합니다. FlowCue는 경기 기록과 리플레이도 다룹니다.</p>
+            </li>
+            <li id="flow-finish">
+              <p class="flow-device">키오스크와 운영 화면</p>
+              <h3>정리와 결제</h3>
+              <p>경기를 마치면 당구대 주변을 정리하고 키오스크에서 결제합니다. 경기 종료가 결제로 이어지는 흐름과 운영 화면의 이용 상태를 함께 살핍니다.</p>
+            </li>
+          </ol>
+        </div>
+        <a class="flow-link" href="https://takesih.github.io/laonad/">라온빌리어즈 공개 이용 안내 <span aria-hidden="true">↗</span></a>
+      </section>
+
+      <section id="work" class="work" aria-labelledby="work-title">
+        <div class="section-heading"><h2 id="work-title">선택한 작업<span>.</span></h2><p class="mono">PUBLIC REPOSITORIES</p></div>
+        <article class="project" id="project-web">
+          <div class="project-art billiards" aria-hidden="true"><div class="table-felt"><span class="ball ball-eight">8</span><span class="ball ball-cue"></span><span class="cue"></span></div></div>
+          <div class="project-body"><p class="project-type">WEB · HTML</p><h3>라온빌리어즈</h3><p>라온빌리어즈를 소개하는 홍보 웹. 소스와 공개 사이트를 함께 볼 수 있습니다.</p>
+          <div class="project-links"><a href="https://takesih.github.io/laonad/">사이트 보기 <span aria-hidden="true">↗</span></a><a href="https://github.com/takesih/laonad">소스 보기 <span aria-hidden="true">↗</span></a></div></div>
+        </article>
+        <article class="project" id="project-infra">
+          <div class="project-art terminal-art" aria-hidden="true"><div class="terminal-lines"><b>Proxmox VE</b><span><em>›</em> vmbr0 · DHCP</span><span><em>›</em> LVM · resize</span><i></i></div></div>
+          <div class="project-body"><p class="project-type">INFRASTRUCTURE · SHELL</p><h3>Proxmox VE 스크립트</h3><p>가상화 환경의 네트워크와 저장공간을 관리하는 스크립트 모음. 브리지 DHCP 설정과 백업 복원, LVM 크기 조정 도구를 담았습니다.</p>
+          <div class="project-links"><a href="https://github.com/takesih/pve_script">저장소 보기 <span aria-hidden="true">↗</span></a></div></div>
+        </article>
+        <article class="project" id="project-automation">
+          <div class="project-art pocket-art" aria-hidden="true"><div class="pocket-stack"><i></i><i></i><i></i></div></div>
+          <div class="project-body"><p class="project-type">OPEN SOURCE FORK · TYPESCRIPT</p><h3>PocketBase MCP</h3><p>PocketBase 데이터와 스키마를 MCP로 다루는 오픈소스 서버의 공개 포크입니다.</p>
+          <div class="project-links"><a href="https://github.com/takesih/pocketbase-mcp">포크 보기 <span aria-hidden="true">↗</span></a></div></div>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="shell footer-inner">
+        <div><p class="eyebrow">FIND ME ON GITHUB</p><a class="footer-name" href="https://github.com/takesih">takesih<span>.</span> <span aria-hidden="true">↗</span></a></div>
+        <a class="to-top" href="#main">맨 위로 ↑</a>
+      </div>
+    </footer>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
